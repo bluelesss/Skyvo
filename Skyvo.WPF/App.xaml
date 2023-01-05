@@ -1,0 +1,11 @@
+﻿<Application x:Class="Skyvo.WPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+  <Application.Resources>
+    <FontFamily x:Key="PoppinsThin">Fonts/#Poppins Thin</FontFamily>
+    <FontFamily x:Key="PoppinsRegular">Fonts/#Poppins Regular</FontFamily>
+    <FontFamily x:Key="PoppinsMedium">Fonts/#Poppins Medium</FontFamily>
+    <FontFamily x:Key="PoppinsSemiBold">Fonts/#Poppins SemiBold</FontFamily>
+  </Application.Resources>
+</Application>

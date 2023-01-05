@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <Nullable>disable</Nullable>
+        <UseWPF>true</UseWPF>
+        <Company>Skyvo</Company>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <PlatformTarget>x64</PlatformTarget>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="Fonts\Inter-SemiBold.ttf" />
+        <None Remove="Fonts\Inter-Regular.ttf" />
+        <None Remove="Fonts\Inter-Light.ttf" />
+        <None Remove="Fonts\Inter-Medium.ttf" />
+        <None Remove="Icons\ShowCommand.png" />
+        <None Remove="Icons\TabAdd.png" />
+        <None Remove="Icons\Close.png" />
+        <None Remove="Fonts\Poppins-Light.ttf" />
+        <None Remove="Fonts\Poppins-Medium.ttf" />
+        <None Remove="Fonts\Poppins-Regular.ttf" />
+        <None Remove="Fonts\Poppins-SemiBold.ttf" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="Images\ShowCommand.png" />
+        <None Remove="Images\TabAdd.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="Fonts\Poppins-Medium.ttf" />
+      <Resource Include="Fonts\Poppins-Regular.ttf" />
+      <Resource Include="Fonts\Poppins-SemiBold.ttf" />
+      <None Remove="Fonts\Poppins-Thin.ttf" />
+      <Resource Include="Fonts\Poppins-Thin.ttf" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AvalonEdit" Version="6.2.0.78" />
+    </ItemGroup>
+
+</Project>
