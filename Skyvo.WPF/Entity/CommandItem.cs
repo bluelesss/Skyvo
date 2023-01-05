@@ -9,22 +9,19 @@ public class CommandItem
     public ModifierKeys Modifiers { get; set; }
     public ICommand Command { get; set; }
 
-    public string ShortCutInfo
-    {
-        get { return $"{Modifiers}.{Key}"; }
-    }
+    public string ShortCutInfo => $"{Modifiers}.{Key}";
 
     public static void ApplyInputBindings(
         InputBindingCollection inputBinding,
         CommandItem self)
     {
-        var KeyBind = new KeyBinding
+        var keyBind = new KeyBinding
         {
             Key = self.Key,
             Modifiers = self.Modifiers,
-            Command = self.Command,
+            Command = self.Command
         };
 
-        inputBinding.Add(KeyBind);
+        inputBinding.Add(keyBind);
     }
 }

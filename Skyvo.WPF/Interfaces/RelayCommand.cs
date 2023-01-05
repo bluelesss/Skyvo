@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Skyvo.WPF.Commands;
+namespace Skyvo.WPF;
 
 public class RelayCommand : ICommand
 {

@@ -8,6 +8,7 @@ namespace Skyvo.WPF;
 public partial class CommandItemView : UserControl
 {
     private readonly CommandItem _itemInfo;
+    private bool _lazyLoad = false;
 
     public CommandItemView(CommandItem itemInfo)
     {
@@ -15,42 +16,47 @@ public partial class CommandItemView : UserControl
 
         _itemInfo = itemInfo;
         DataContext = itemInfo;
-        
+
         Loaded += OnLoaded;
     }
 
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
-        var Keys = 
+        if (_lazyLoad)
+            return;
+        
+        var keys =
             _itemInfo.ShortCutInfo
-            .Split(".");
+                .Split(".");
 
-        foreach (var key in Keys)
+        foreach (var key in keys)
         {
-            var BackBorder = new Border()
+            var backBorder = new Border
             {
-                Background = ((SolidColorBrush)(new BrushConverter().ConvertFromString("#272727"))),
+                Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#272727"),
                 CornerRadius = new CornerRadius(5),
                 Margin = new Thickness(5, 0, 0, 0),
                 Padding = new Thickness(6, 0, 6, 0),
-                Effect =  new DropShadowEffect()
+                Effect = new DropShadowEffect
                 {
                     ShadowDepth = 3,
                     Opacity = 0.4
                 }
             };
-            
-            var KeyTextBlock = new TextBlock()
+
+            var keyTextBlock = new TextBlock
             {
                 Text = key,
                 Foreground = Brushes.White,
                 VerticalAlignment = VerticalAlignment.Center,
                 HorizontalAlignment = HorizontalAlignment.Center,
-                FontFamily = ((FontFamily)(Application.Current.TryFindResource("PoppinsRegular")))
+                FontFamily = (FontFamily)Application.Current.TryFindResource("PoppinsRegular")
             };
-            
-            BackBorder.Child = KeyTextBlock;
-            KeyPanel.Children.Add(BackBorder);
+
+            backBorder.Child = keyTextBlock;
+            KeyPanel.Children.Add(backBorder);
         }
+
+        _lazyLoad = true;
     }
 }

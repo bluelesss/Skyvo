@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Skyvo.WPF"
         mc:Ignorable="d"
         x:Name="mWindow"
 
@@ -22,8 +21,7 @@
     <Border Background="#141414"
             BorderBrush="#323232"
             BorderThickness="1"
-            CornerRadius="8"
-            >
+            CornerRadius="8">
 
       <!--Shadow Effect-->
       <Border.Effect>
@@ -40,8 +38,7 @@
                     Background="Transparent"
                     BorderBrush="Transparent"
                     BorderThickness="0"
-                    MouseDown="TabControl_MouseDown"
-                    >
+                    MouseDown="TabControl_MouseDown">
 
           <!--Code TabControl Style-->
           <TabControl.Style>
@@ -75,8 +72,7 @@
                             <!--TabItem Presenter-->
                             <TabPanel IsItemsHost="True"
                                       FocusVisualStyle="{x:Null}"
-                                      KeyboardNavigation.TabIndex="1" 
-                                      />
+                                      KeyboardNavigation.TabIndex="1" />
                           </StackPanel>
                         </ScrollViewer>
                       </Border>
@@ -106,7 +102,7 @@
                 <Style TargetType="{x:Type TabItem}">
 
                   <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-                  <Setter Property="FontFamily" Value="{StaticResource PoppinsRegular}"/>
+                  <Setter Property="FontFamily" Value="{StaticResource PoppinsRegular}" />
 
                   <Setter Property="Foreground" Value="White" />
                   <Setter Property="Padding" Value="14 8 14 8" />
@@ -129,8 +125,8 @@
                                             VerticalAlignment="Center"
                                             RecognizesAccessKey="True"
                                             Focusable="False"
-                                            ContentSource="Header" 
-                                            Margin="{TemplateBinding Padding}"/>
+                                            ContentSource="Header"
+                                            Margin="{TemplateBinding Padding}" />
                         </Border>
                         <ControlTemplate.Triggers>
                           <Trigger Property="IsSelected" Value="True">
@@ -148,8 +144,6 @@
             </Style>
           </TabControl.Style>
 
-          <TabItem Header="Untitled" />
-
         </TabControl>
 
         <!-- Command Bar -->
@@ -159,17 +153,15 @@
                 BorderBrush="#323232"
                 BorderThickness="1"
                 CornerRadius="8"
-                
+
                 Width="400"
                 Height="Auto"
-                
+
                 Margin="0 100 0 0"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center"
-                
-                MaxHeight="220"
-                
-                >
+
+                MaxHeight="220">
 
           <!--Shadow Effect-->
           <Border.Effect>
@@ -196,7 +188,7 @@
 
               <StackPanel Orientation="Horizontal">
 
-                <TextBlock Foreground="#625F5F" 
+                <TextBlock Foreground="#625F5F"
                            Text=">>"
                            FontFamily="{StaticResource PoppinsRegular}"
                            VerticalAlignment="Center"
@@ -211,26 +203,24 @@
                          Foreground="White"
                          CaretBrush="White"
                          VerticalAlignment="Center"
-                         HorizontalAlignment="Center"
-                         />
+                         HorizontalAlignment="Center" />
 
               </StackPanel>
 
             </Border>
-            
+
             <!--Command List-->
             <ListBox x:Name="CommandListListBox"
-                     
+
                      Background="Transparent"
                      BorderBrush="Transparent"
                      BorderThickness="0"
-                     
+
                      ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                     
+
                      Grid.Row="1"
-                     Padding="10"
-                     />
+                     Padding="10" />
 
           </Grid>
         </Border>

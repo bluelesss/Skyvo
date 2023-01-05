@@ -13,8 +13,8 @@ public class CodeEditor : TextEditor
         VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
 
         ShowLineNumbers = true;
-        Foreground = ((SolidColorBrush)new BrushConverter().ConvertFromString("#FFF"));
-        LineNumbersForeground = ((SolidColorBrush)new BrushConverter().ConvertFromString("#FFF"));
+        Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFF");
+        LineNumbersForeground = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFF");
 
         Background = Brushes.Transparent;
         BorderBrush = Brushes.Transparent;
@@ -31,31 +31,32 @@ public class CodeEditor : TextEditor
         Options.EnableEmailHyperlinks = false;
         Options.EnableImeSupport = false;
         Options.AllowScrollBelowDocument = true;
-        
-        Border PadBorder = new Border()
+
+        var padBorder = new Border
         {
             Margin = new Thickness(10)
         };
-        
+
         TextArea.LeftMargins.RemoveAt(1);
-        TextArea.LeftMargins.Insert(1, PadBorder);
+        TextArea.LeftMargins.Insert(1, padBorder);
 
         TextArea.TextEntered += (sender, args) =>
         {
-            string[] LazyChars = { "\"", "'", "(", "{", "[" };
-            
-            for (int i = 0; i < LazyChars.Length; i++) 
+            string[] lazyChars = { "\"", "'", "(", "{", "[" };
+
+            for (var i = 0; i < lazyChars.Length; i++)
             {
-                if (args.Text.Equals(LazyChars[i]))
+                if (args.Text.Equals(lazyChars[i]))
                 {
-                    int OldOffset = CaretOffset;
-                    
-                    string FixedLazyChars =
-                        LazyChars[i] == "(" ? ")" : LazyChars[i] == "{" ? "}"
-                        : LazyChars[i] == "[" ? "]" : LazyChars[i];
-                    
-                    TextArea.Document.Insert(CaretOffset, FixedLazyChars);
-                    CaretOffset = OldOffset;
+                    var oldOffset = CaretOffset;
+
+                    var fixedLazyChars =
+                        lazyChars[i] == "(" ? ")"
+                        : lazyChars[i] == "{" ? "}"
+                        : lazyChars[i] == "[" ? "]" : lazyChars[i];
+
+                    TextArea.Document.Insert(CaretOffset, fixedLazyChars);
+                    CaretOffset = oldOffset;
                 }
             }
         };

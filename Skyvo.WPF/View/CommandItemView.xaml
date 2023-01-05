@@ -3,19 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:Skyvo.WPF"
              mc:Ignorable="d"
-             
+
              Height="35"
-             
+
              d:DesignWidth="230"
              d:DesignHeight="40"
              VerticalAlignment="Stretch"
-             HorizontalAlignment="Stretch"
-             
-             >
+             HorizontalAlignment="Stretch">
   <Grid>
-    
+
     <Border Background="#201F1F"
             BorderBrush="#323232"
             BorderThickness="1"
@@ -23,26 +20,25 @@
       <Grid>
 
         <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="*"/>
-          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        
+
         <TextBlock Text="{Binding Name}"
                    Foreground="White"
                    FontFamily="{StaticResource PoppinsRegular}"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Margin="15 0 0 0"
-                   />
-        
+                   Margin="15 0 0 0" />
+
         <StackPanel x:Name="KeyPanel"
                     Grid.Column="1"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right"
-                    Margin="7"/>
-        
+                    Margin="7" />
+
       </Grid>
     </Border>
-    
+
   </Grid>
 </UserControl>
